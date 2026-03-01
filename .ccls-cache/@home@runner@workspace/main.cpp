@@ -1,23 +1,22 @@
-//This Program calculates the distance a car can travel
-// on a tank of gas. 
+//This Program calculates the ocean levels rise with given years.
 #include <iostream>
 using namespace std;
 
 int main()
 {
-  const double tankSize = 20; //gallons
-  const double townMPG = 23.5; // MPG in town
-  const double highwayMPG = 8.9; // MPG on highway
+  //Variables for rise rate, 5 years, 7 years and 10 years.
+  const double riseRate = 1.5; // mm per year
+  double rFive = 5;
+  double rSeven = 7;
+  double rTen = 10;
+  //Calculations for ocean level for each year.
+ double fiveYear = riseRate * rFive;
+ double sevenYear = riseRate * rSeven;
+ double tenYear = riseRate * rTen;
 
-  //Calculations for distance
-   double distanceTown =tankSize * townMPG;
-   double distanceHW =tankSize * highwayMPG;
-
-  cout <<" With " <<  tankSize  << " gallons of gas, the car will drive " <<endl; 
-  cout << distanceTown <<" miles in town. "<<endl;
-  cout <<" With "<<  tankSize << " gallons of gas, the car will drive "<<endl;
-  cout <<  distanceHW  <<" miles on the highway."<<endl;
+  cout <<"The ocean's rise rate for 5 years is " << fiveYear <<"mm per year."<<endl;
+  cout <<"The ocean's rise rate for 7 years is " << sevenYear <<"mm per year."<<endl;
+  cout <<"The ocean's rise rate for 10 years is " << tenYear <<"mm per year."<<endl;
 
   return 0;
-  
-   }
+    }
