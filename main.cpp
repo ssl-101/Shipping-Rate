@@ -1,32 +1,40 @@
-//This program will display simple math problems
-//for a tutoring program.
+//This program will calculate interest earned. 
 #include <iostream>
-#include <random>
+#include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
+//variables for calculations.
+  double principal, interestRate, timesCompounded;
 
-//random number generator.
- std::random_device rd;
- std::mt19937 gen(rd());
- std::uniform_int_distribution<> dist(1, 100);
+//gather user input.
+  cout << " Enter principal amount. (initial investment)."<<endl;
+  cin >> principal;
+  cout << " Enter the interest rate in %."<<endl;
+  cin >> interestRate;
+  cout << "Enter times compounded per year."<<endl;
+  cin >> timesCompounded;
 
-// 2 numbers for the simple addition problem.
- int firstNumber = dist(gen);
- int secondNumber = dist(gen);
- int answer;
- int correctAnswer = firstNumber + secondNumber;
+//Calculations. Starting off with converting % into decimal.
+  double decimalRate = interestRate/100;
   
-//Simple addition problem
-  cout << "Solve the problem below. Enter your answer" << endl;
-  cout << firstNumber << " + " << secondNumber << " =?" << endl;
+//Calculations for final balance.
+  double finalBalance = principal * pow(1 +(decimalRate / timesCompounded), timesCompounded);
+
+//Calculations for interest earned.
+  double interestEarned = finalBalance - principal;
   
-  cin >>answer;
-  cout<< "Correct answer: "<< correctAnswer << endl;
-  
-  cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-  cin.get();
-  
-   return 0;
+
+//Conclusion: output display
+  cout << fixed << setprecision(2); 
+  cout << " View Results Below."<<endl;
+  cout << " Interest Rate :"<< interestRate<<endl;
+  cout << " Times Compounded:"<< timesCompounded <<endl;
+  cout << " Principal:"<< principal <<endl;
+  cout << " Interest Earned:" << interestEarned <<endl;
+  cout << " Final Balance:" << finalBalance <<endl;
+   
+  return 0;
 }
